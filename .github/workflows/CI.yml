@@ -36,3 +36,6 @@ jobs:
 
       - name: Test library using fpm
         run: fpm test --profile ${{ matrix.profile }}
+
+      - name: Run example using fpm
+        run: fpm run --example --profile ${{ matrix.profile }}
