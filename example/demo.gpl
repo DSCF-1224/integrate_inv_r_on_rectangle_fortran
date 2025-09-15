@@ -1,0 +1,15 @@
+reset session
+
+set terminal svg dynamic
+
+set view 60,135,1,1
+set view equal xy
+set contourfill ztics
+set ztics 0.5
+set palette viridis
+
+set output 'demo1.svg'; splot 'demo1.dat' nonuniform matrix using 1:2:3 with contourfill notitle
+set output 'demo2.svg'; splot 'demo2.dat' nonuniform matrix using 1:2:3 with contourfill notitle
+set output 'demo4.svg'; splot 'demo4.dat' nonuniform matrix using 1:2:3 with contourfill notitle
+
+set output
