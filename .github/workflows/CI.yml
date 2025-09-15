@@ -1,0 +1,38 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+
+  fpm:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+
+      matrix:
+
+        profile: [debug, release]
+
+      fail-fast: false
+
+    steps:
+
+      - uses: actions/checkout@v5
+
+      - name: Setup the Fortran Package Manager 
+        uses: fortran-lang/setup-fpm@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify fpm installation
+        run: fpm --version
+
+      - name: Verify gfortran installation
+        run: gfortran --version
+
+      - name: Build library using fpm
+        run: fpm build --profile ${{ matrix.profile }}
+
+      - name: Test library using fpm
+        run: fpm test --profile ${{ matrix.profile }}
