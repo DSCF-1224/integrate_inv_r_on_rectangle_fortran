@@ -23,6 +23,7 @@ jobs:
       - name: Setup the Fortran Package Manager 
         uses: fortran-lang/setup-fpm@v6
         with:
+          fpm-version: 'latest'
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Verify fpm installation
