@@ -33,3 +33,6 @@ jobs:
 
       - name: Build library using fpm
         run: fpm build --profile ${{ matrix.profile }}
+
+      - name: Test library using fpm
+        run: fpm test --profile ${{ matrix.profile }}
