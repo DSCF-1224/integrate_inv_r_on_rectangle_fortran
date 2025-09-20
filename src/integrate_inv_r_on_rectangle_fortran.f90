@@ -198,20 +198,10 @@ module integrate_inv_r_on_rectangle_fortran
 
 
 
-        associate(b => sup_x, d => sup_y)
+        associate( r => hypot(sup_x, sup_y) )
 
-            associate( r_bd => hypot(b,d) )
-
-                associate( r_bd_b => (r_bd + b) )
-
-                    integral = d * log( (r_bd_b * r_bd_b) / (d * d) ) &!
-                    &        + b * log( 1.0_real64 + ( 2.0_real64 * d * (d + r_bd) ) / (b * b) )
-
-                    integral = integral * 0.5_real64
-
-                end associate
-
-            end associate
+            integral = sup_x * log( (r + sup_y) / sup_x ) &!
+            &        + sup_y * log( (r + sup_x) / sup_y )
 
         end associate
 
