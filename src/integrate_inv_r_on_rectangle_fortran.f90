@@ -125,7 +125,7 @@ module integrate_inv_r_on_rectangle_fortran
 
                 if (inf_y .lt. 0.0_real64) then ! [p,p] x [n,?]
 
-                    if ( abs(sup_y) .lt. 0.0_real64) then ! [p,p] x [n,n] or [p,p] x [n,p]
+                    if ( abs(sup_y) .gt. 0.0_real64 ) then ! [p,p] x [n,n] or [p,p] x [n,p]
 
                         integral = integrate_inv_r_on_rectangle_4(inf_x = inf_x, sup_x = sup_x, inf_y = inf_y, sup_y = sup_y)
 
