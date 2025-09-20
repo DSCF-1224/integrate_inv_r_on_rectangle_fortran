@@ -184,8 +184,7 @@ module integrate_inv_r_on_rectangle_fortran
 
 
     !> @note
-    !> J[a_,b_,c_,d_]:=Integrate[1/Sqrt[x^2+y^2], {x,y} \[Element] Rectangle[{a,c},{b,d}]]
-    !> J[0,b,0,d] // InputForm
+    !> Assuming[ a>0 && b>0, Integrate[ a/Cos[t], {t, 0, ArcTan[b/a]} ] + Integrate[ b/Cos[t], {t, 0, ArcTan[a/b]} ] ]
     !> @endnote
     elemental function integrate_inv_r_on_rectangle_2(sup_x, sup_y) result(integral)
 
