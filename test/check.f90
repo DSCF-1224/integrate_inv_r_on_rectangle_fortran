@@ -10,6 +10,14 @@ program check
 
 
 
+    print *, ' 0.23806163576061183820921281760012077316'
+    print *, integrate( inf_x =  0.5_real64 , sup_x =  1.0_real64 , inf_y =  0.5_real64 , sup_y =  1.0_real64 )
+    print *, integrate( inf_x = -1.0_real64 , sup_x = -0.5_real64 , inf_y =  0.5_real64 , sup_y =  1.0_real64 )
+    print *, integrate( inf_x = -1.0_real64 , sup_x = -0.5_real64 , inf_y = -1.0_real64 , sup_y = -0.5_real64 )
+    print *, integrate( inf_x =  0.5_real64 , sup_x =  1.0_real64 , inf_y = -1.0_real64 , sup_y = -0.5_real64 )
+
+    print *
+
     print *, '  7.0509886961563442018608745998383384722'
     print *, integrate( inf_x = -1.0_real64 , sup_x = 1.0_real64 , inf_y = -1.0_real64 , sup_y = 1.0_real64 )
 
