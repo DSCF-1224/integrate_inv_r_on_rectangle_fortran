@@ -10,13 +10,16 @@ program check
 
 
 
-    print *, ' 0.23806163576061183820921281760012077316'
+    ! N[ Integrate[ F[x,y], {x,1/2,1}, {y,1/2,1} ], 38 ]
+
+    print *, ' 0.23806163576061183820903340781753481141'
     print *, integrate( inf_x =  0.5_real64 , sup_x =  1.0_real64 , inf_y =  0.5_real64 , sup_y =  1.0_real64 )
     print *, integrate( inf_x = -1.0_real64 , sup_x = -0.5_real64 , inf_y =  0.5_real64 , sup_y =  1.0_real64 )
     print *, integrate( inf_x = -1.0_real64 , sup_x = -0.5_real64 , inf_y = -1.0_real64 , sup_y = -0.5_real64 )
     print *, integrate( inf_x =  0.5_real64 , sup_x =  1.0_real64 , inf_y = -1.0_real64 , sup_y = -0.5_real64 )
+    print *  ! BLANK LINE
 
-    print *
+
 
     print *, '  1.1194352227801548634342191520109696563'
     print *, integrate( inf_x =  0.5_real64 , sup_x =  1.0_real64 , inf_y = -1.0_real64 , sup_y =  1.0_real64 )
