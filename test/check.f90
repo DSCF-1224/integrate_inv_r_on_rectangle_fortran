@@ -25,13 +25,20 @@ program check
 
 
 
-    print *, '  1.1194352227801548634342191520109696563'
+    ! F[x,y] = 1/Sqrt[x^2 + y^2]
+    ! N[ Integrate[ F[x,y], { x,  1/2,  1   }, { y, -1  ,  1   } ], 38 ]
+    ! N[ Integrate[ F[x,y], { x, -1  ,  1   }, { y,  1/2,  1   } ], 38 ]
+    ! N[ Integrate[ F[x,y], { x, -1  , -1/2 }, { y, -1  ,  1   } ], 38 ]
+    ! N[ Integrate[ F[x,y], { x, -1  ,  1   }, { y, -1  , -1/2 } ], 38 ]
+
+    print *, '  1.1194352227801548634416427327973271204'
     print *, integrate( inf_x =  0.5_real64 , sup_x =  1.0_real64 , inf_y = -1.0_real64 , sup_y =  1.0_real64 )
     print *, integrate( inf_x = -1.0_real64 , sup_x =  1.0_real64 , inf_y =  0.5_real64 , sup_y =  1.0_real64 )
     print *, integrate( inf_x = -1.0_real64 , sup_x = -0.5_real64 , inf_y = -1.0_real64 , sup_y =  1.0_real64 )
     print *, integrate( inf_x = -1.0_real64 , sup_x =  1.0_real64 , inf_y = -1.0_real64 , sup_y = -0.5_real64 )
+    print *  ! BLANK LINE
 
-    print *
+
 
     print *, '  7.0509886961563442018608745998383384722'
     print *, integrate( inf_x = -1.0_real64 , sup_x = 1.0_real64 , inf_y = -1.0_real64 , sup_y = 1.0_real64 )
