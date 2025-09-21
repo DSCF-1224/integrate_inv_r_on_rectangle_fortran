@@ -67,7 +67,7 @@ module integrate_inv_r_on_rectangle_fortran
 
                     else ! [n,n] x [z,p]
 
-                        integral = integrate_inv_r_on_rectangle_3(sup_x = inf_y, inf_y = inf_x, sup_y = sup_x)
+                        integral = integrate_inv_r_on_rectangle_3(sup_x = sup_y, inf_y = inf_x, sup_y = sup_x)
 
                     end if
 
