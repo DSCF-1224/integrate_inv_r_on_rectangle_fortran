@@ -67,7 +67,7 @@ module integrate_inv_r_on_rectangle_fortran
 
                     else ! [n,n] x [z,p]
 
-                        integral = integrate_inv_r_on_rectangle_3(sup_x = inf_y, inf_y = inf_x, sup_y = sup_x)
+                        integral = integrate_inv_r_on_rectangle_3(sup_x = sup_y, inf_y = inf_x, sup_y = sup_x)
 
                     end if
 
@@ -184,8 +184,7 @@ module integrate_inv_r_on_rectangle_fortran
 
 
     !> @note
-    !> J[a_,b_,c_,d_]:=Integrate[1/Sqrt[x^2+y^2], {x,y} \[Element] Rectangle[{a,c},{b,d}]]
-    !> J[0,b,0,d] // InputForm
+    !> Assuming[ a>0 && b>0, Integrate[ a/Cos[t], {t, 0, ArcTan[b/a]} ] + Integrate[ b/Cos[t], {t, 0, ArcTan[a/b]} ] ]
     !> @endnote
     elemental function integrate_inv_r_on_rectangle_2(sup_x, sup_y) result(integral)
 
@@ -198,20 +197,10 @@ module integrate_inv_r_on_rectangle_fortran
 
 
 
-        associate(b => sup_x, d => sup_y)
+        associate( r => hypot(sup_x, sup_y) )
 
-            associate( r_bd => hypot(b,d) )
-
-                associate( r_bd_b => (r_bd + b) )
-
-                    integral = d * log( (r_bd_b * r_bd_b) / (d * d) ) &!
-                    &        + b * log( 1.0_real64 + ( 2.0_real64 * d * (d + r_bd) ) / (b * b) )
-
-                    integral = integral * 0.5_real64
-
-                end associate
-
-            end associate
+            integral = sup_x * log( (r + sup_y) / sup_x ) &!
+            &        + sup_y * log( (r + sup_x) / sup_y )
 
         end associate
 
