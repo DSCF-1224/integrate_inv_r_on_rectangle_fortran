@@ -41,6 +41,20 @@ program check
 
 
     ! F[x,y] = 1/Sqrt[x^2 + y^2]
+    ! N[ Integrate[ F[x,y], { x,  0,  1 }, { y,  0,  1 } ], 38 ]
+    ! N[ Integrate[ F[x,y], { x, -1,  0 }, { y,  0,  1 } ], 38 ]
+    ! N[ Integrate[ F[x,y], { x, -1,  0 }, { y, -1,  0 } ], 38 ]
+    ! N[ Integrate[ F[x,y], { x,  0,  1 }, { y, -1,  0 } ], 38 ]
+
+    print *, '  1.7627471740390860504652186499595846181'
+    print *, integrate( inf_x =  0.0_real64 , sup_x = 1.0_real64 , inf_y =  0.0_real64 , sup_y = 1.0_real64 )
+    print *, integrate( inf_x = -1.0_real64 , sup_x = 0.0_real64 , inf_y =  0.0_real64 , sup_y = 1.0_real64 )
+    print *, integrate( inf_x = -1.0_real64 , sup_x = 0.0_real64 , inf_y = -1.0_real64 , sup_y = 0.0_real64 )
+    print *, integrate( inf_x =  0.0_real64 , sup_x = 1.0_real64 , inf_y = -1.0_real64 , sup_y = 0.0_real64 )
+
+
+
+    ! F[x,y] = 1/Sqrt[x^2 + y^2]
     ! N[ Integrate[ F[x,y], { x,  0,  1 }, { y, -1,  1 } ], 38 ]
     ! N[ Integrate[ F[x,y], { x, -1,  1 }, { y,  0,  1 } ], 38 ]
     ! N[ Integrate[ F[x,y], { x, -1,  0 }, { y, -1,  1 } ], 38 ]
@@ -61,13 +75,5 @@ program check
     print *, '  7.0509886961563442018608745998383384722'
     print *, integrate( inf_x = -1.0_real64 , sup_x = 1.0_real64 , inf_y = -1.0_real64 , sup_y = 1.0_real64 )
     print *  ! BLANK LINE
-
-    print *
-
-    print *, '  1.7627471740390860504652186499595846181'
-    print *, integrate( inf_x =  0.0_real64 , sup_x = 1.0_real64 , inf_y =  0.0_real64 , sup_y = 1.0_real64 )
-    print *, integrate( inf_x = -1.0_real64 , sup_x = 0.0_real64 , inf_y =  0.0_real64 , sup_y = 1.0_real64 )
-    print *, integrate( inf_x = -1.0_real64 , sup_x = 0.0_real64 , inf_y = -1.0_real64 , sup_y = 0.0_real64 )
-    print *, integrate( inf_x =  0.0_real64 , sup_x = 1.0_real64 , inf_y = -1.0_real64 , sup_y = 0.0_real64 )
 
 end program check
