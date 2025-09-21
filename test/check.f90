@@ -26,6 +26,30 @@ program check
 
 
     ! F[x,y] = 1/Sqrt[x^2 + y^2]
+    ! N[ Integrate[ F[x,y], { x,  1/2,  1   }, { y,  0  ,  1   } ], 38 ]
+    ! N[ Integrate[ F[x,y], { x,  0  ,  1   }, { y,  1/2,  1   } ], 38 ]
+    ! N[ Integrate[ F[x,y], { x, -1  ,  0   }, { y,  1/2,  1   } ], 38 ]
+    ! N[ Integrate[ F[x,y], { x, -1  , -1/2 }, { y,  0  ,  1   } ], 38 ]
+    ! N[ Integrate[ F[x,y], { x, -1  , -1/2 }, { y, -1  ,  0   } ], 38 ]
+    ! N[ Integrate[ F[x,y], { x, -1  ,  0   }, { y, -1  , -1/2 } ], 38 ]
+    ! N[ Integrate[ F[x,y], { x,  0  ,  1   }, { y, -1  , -1/2 } ], 38 ]
+    ! N[ Integrate[ F[x,y], { x,  1/2,  1   }, { y, -1  ,  0   } ], 38 ]
+
+    print *, ' 0.55971761139007743172082136639866356022'
+    print *, integrate( inf_x =  0.5_real64 , sup_x =  1.0_real64 , inf_y =  0.0_real64 , sup_y =  1.0_real64 )
+    print *, integrate( inf_x =  0.0_real64 , sup_x =  1.0_real64 , inf_y =  0.5_real64 , sup_y =  1.0_real64 )
+    print *, integrate( inf_x = -1.0_real64 , sup_x =  0.0_real64 , inf_y =  0.5_real64 , sup_y =  1.0_real64 )
+    print *, integrate( inf_x = -1.0_real64 , sup_x = -0.5_real64 , inf_y =  0.0_real64 , sup_y =  1.0_real64 )
+    print *, integrate( inf_x = -1.0_real64 , sup_x = -0.5_real64 , inf_y = -1.0_real64 , sup_y =  0.0_real64 )
+    print *, integrate( inf_x = -1.0_real64 , sup_x =  0.0_real64 , inf_y = -1.0_real64 , sup_y = -0.5_real64 )
+    print *, integrate( inf_x =  0.0_real64 , sup_x =  1.0_real64 , inf_y = -1.0_real64 , sup_y = -0.5_real64 )
+    print *, integrate( inf_x =  0.5_real64 , sup_x =  1.0_real64 , inf_y = -1.0_real64 , sup_y =  0.0_real64 )
+    print *  ! BLANK LINE
+
+
+
+
+    ! F[x,y] = 1/Sqrt[x^2 + y^2]
     ! N[ Integrate[ F[x,y], { x,  1/2,  1   }, { y, -1  ,  1   } ], 38 ]
     ! N[ Integrate[ F[x,y], { x, -1  ,  1   }, { y,  1/2,  1   } ], 38 ]
     ! N[ Integrate[ F[x,y], { x, -1  , -1/2 }, { y, -1  ,  1   } ], 38 ]
@@ -51,6 +75,7 @@ program check
     print *, integrate( inf_x = -1.0_real64 , sup_x = 0.0_real64 , inf_y =  0.0_real64 , sup_y = 1.0_real64 )
     print *, integrate( inf_x = -1.0_real64 , sup_x = 0.0_real64 , inf_y = -1.0_real64 , sup_y = 0.0_real64 )
     print *, integrate( inf_x =  0.0_real64 , sup_x = 1.0_real64 , inf_y = -1.0_real64 , sup_y = 0.0_real64 )
+    print *  ! BLANK LINE
 
 
 
